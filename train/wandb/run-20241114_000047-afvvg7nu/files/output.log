@@ -1,0 +1,24 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:66: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[2024-11-14 00:00:55,830] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 80, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 75, in main
+    trainer.train()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2221, in _inner_training_loop
+    self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 398, in deepspeed_init
+    hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 270, in trainer_config_finalize
+    raise ValueError(
+ValueError: Please correct the following DeepSpeed config values that mismatch TrainingArguments values:
+- ds gradient_accumulation_steps=1 vs hf gradient_accumulation_steps=6
+The easiest method is to set these DeepSpeed config values to 'auto'.

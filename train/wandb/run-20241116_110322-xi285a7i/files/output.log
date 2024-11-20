@@ -1,0 +1,99 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:134: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Start training...
+Parameter Offload: Total persistent parameters: 266240 in 65 params
+[2024-11-16 11:03:31,258] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                  | 1/180108 [01:43<5159:20:52, 103.13s/it]Traceback (most recent call last):
+[2024-11-16 11:05:15,192] [WARNING] [stage3.py:2114:step] 2 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+  File "/workspace/ML_team/train/train.py", line 153, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 144, in main
+    trainer.train()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3579, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3633, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 1899, in forward
+    loss = self.module(*inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 1214, in forward
+    loss = self.loss_function(logits=logits, labels=labels, vocab_size=self.config.vocab_size, **loss_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/loss/loss_utils.py", line 38, in ForCausalLMLoss
+    shift_logits = logits[..., :-1, :].contiguous()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.91 GiB. GPU 0 has a total capacity of 44.34 GiB of which 2.38 GiB is free. Process 3013371 has 41.95 GiB memory in use. Of the allocated memory 40.76 GiB is allocated by PyTorch, and 743.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/ML_team/train/train.py", line 153, in <module>
+[rank0]:     main()
+[rank0]:   File "/workspace/ML_team/train/train.py", line 144, in main
+[rank0]:     trainer.train()
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank0]:     return inner_training_loop(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3579, in training_step
+[rank0]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3633, in compute_loss
+[rank0]:     outputs = model(**inputs)
+[rank0]:               ^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 1899, in forward
+[rank0]:     loss = self.module(*inputs, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+[rank0]:     return inner()
+[rank0]:            ^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+[rank0]:     result = forward_call(*args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 1214, in forward
+[rank0]:     loss = self.loss_function(logits=logits, labels=labels, vocab_size=self.config.vocab_size, **loss_kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/loss/loss_utils.py", line 38, in ForCausalLMLoss
+[rank0]:     shift_logits = logits[..., :-1, :].contiguous()
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.91 GiB. GPU 0 has a total capacity of 44.34 GiB of which 2.38 GiB is free. Process 3013371 has 41.95 GiB memory in use. Of the allocated memory 40.76 GiB is allocated by PyTorch, and 743.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

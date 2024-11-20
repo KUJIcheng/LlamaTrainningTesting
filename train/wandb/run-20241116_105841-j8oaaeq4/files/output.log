@@ -1,0 +1,51 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:134: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Start training...
+Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 153, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 144, in main
+    trainer.train()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2278, in _inner_training_loop
+    model, self.optimizer, self.lr_scheduler = self.accelerator.prepare(
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 1323, in prepare
+    result = self._prepare_deepspeed(*args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 1821, in _prepare_deepspeed
+    deepspeed_plugin.deepspeed_config_process(must_match=False, **config_kwargs)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/dataclasses.py", line 1241, in deepspeed_config_process
+    self.deepspeed_config_process(
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/dataclasses.py", line 1245, in deepspeed_config_process
+    self.fill_match(prefix + key, mismatches, must_match=must_match, **kwargs)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/dataclasses.py", line 1210, in fill_match
+    raise ValueError(
+ValueError: `zero_optimization.stage3_max_reuse_distance` not found in kwargs. Please specify `zero_optimization.stage3_max_reuse_distance` without `auto` (set to correct value) in the DeepSpeed config file or pass it in kwargs.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/ML_team/train/train.py", line 153, in <module>
+[rank1]:     main()
+[rank1]:   File "/workspace/ML_team/train/train.py", line 144, in main
+[rank1]:     trainer.train()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank1]:     return inner_training_loop(
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2278, in _inner_training_loop
+[rank1]:     model, self.optimizer, self.lr_scheduler = self.accelerator.prepare(
+[rank1]:                                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 1323, in prepare
+[rank1]:     result = self._prepare_deepspeed(*args)
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 1821, in _prepare_deepspeed
+[rank1]:     deepspeed_plugin.deepspeed_config_process(must_match=False, **config_kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/dataclasses.py", line 1241, in deepspeed_config_process
+[rank1]:     self.deepspeed_config_process(
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/dataclasses.py", line 1245, in deepspeed_config_process
+[rank1]:     self.fill_match(prefix + key, mismatches, must_match=must_match, **kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/dataclasses.py", line 1210, in fill_match
+[rank1]:     raise ValueError(
+[rank1]: ValueError: `zero_optimization.stage3_max_reuse_distance` not found in kwargs. Please specify `zero_optimization.stage3_max_reuse_distance` without `auto` (set to correct value) in the DeepSpeed config file or pass it in kwargs.

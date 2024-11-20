@@ -1,0 +1,6 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+[2024-11-14 01:14:17,514] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-11-14 01:14:26,053] [INFO] [comm.py:652:init_distributed] cdb=None
+/workspace/ML_team/train/train.py:98: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(

@@ -1,0 +1,204 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:120: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Start training...
+[2024-11-15 15:10:55,375] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 135, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 130, in main
+    trainer.train()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3579, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3633, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 1899, in forward
+    loss = self.module(*inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 1190, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 933, in forward
+    layer_outputs = self._gradient_checkpointing_func(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/_compile.py", line 32, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/utils/checkpoint.py", line 489, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/utils/checkpoint.py", line 264, in forward
+    outputs = run_function(*args)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 676, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+                                                          ^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 498, in forward
+    attn_output = _flash_attention_forward(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 297, in _flash_attention_forward
+    attn_output = flash_attn_func(
+                  ^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/flash_attn/flash_attn_interface.py", line 1102, in flash_attn_func
+    def flash_attn_func(
+
+KeyboardInterrupt
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/ML_team/train/train.py", line 135, in <module>
+[rank3]:     main()
+[rank3]:   File "/workspace/ML_team/train/train.py", line 130, in main
+[rank3]:     trainer.train()
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank3]:     return inner_training_loop(
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+[rank3]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank3]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3579, in training_step
+[rank3]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3633, in compute_loss
+[rank3]:     outputs = model(**inputs)
+[rank3]:               ^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank3]:     ret_val = func(*args, **kwargs)
+[rank3]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 1899, in forward
+[rank3]:     loss = self.module(*inputs, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+[rank3]:     return inner()
+[rank3]:            ^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+[rank3]:     result = forward_call(*args, **kwargs)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 1190, in forward
+[rank3]:     outputs = self.model(
+[rank3]:               ^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+[rank3]:     return inner()
+[rank3]:            ^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+[rank3]:     result = forward_call(*args, **kwargs)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 933, in forward
+[rank3]:     layer_outputs = self._gradient_checkpointing_func(
+[rank3]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/_compile.py", line 32, in inner
+[rank3]:     return disable_fn(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+[rank3]:     return fn(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/utils/checkpoint.py", line 489, in checkpoint
+[rank3]:     return CheckpointFunction.apply(function, preserve, *args)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/autograd/function.py", line 575, in apply
+[rank3]:     return super().apply(*args, **kwargs)  # type: ignore[misc]
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/utils/checkpoint.py", line 264, in forward
+[rank3]:     outputs = run_function(*args)
+[rank3]:               ^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+[rank3]:     return inner()
+[rank3]:            ^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+[rank3]:     result = forward_call(*args, **kwargs)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 676, in forward
+[rank3]:     hidden_states, self_attn_weights, present_key_value = self.self_attn(
+[rank3]:                                                           ^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+[rank3]:     return inner()
+[rank3]:            ^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in inner
+[rank3]:     result = forward_call(*args, **kwargs)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 498, in forward
+[rank3]:     attn_output = _flash_attention_forward(
+[rank3]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/modeling_flash_attention_utils.py", line 297, in _flash_attention_forward
+[rank3]:     attn_output = flash_attn_func(
+[rank3]:                   ^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/flash_attn/flash_attn_interface.py", line 1102, in flash_attn_func
+[rank3]:     def flash_attn_func(
+[rank3]:
+[rank3]: KeyboardInterrupt

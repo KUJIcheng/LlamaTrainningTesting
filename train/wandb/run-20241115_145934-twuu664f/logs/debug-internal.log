@@ -1,0 +1,19 @@
+{"time":"2024-11-15T14:59:34.749890185Z","level":"INFO","msg":"using version","core version":"0.18.6"}
+{"time":"2024-11-15T14:59:34.750148408Z","level":"INFO","msg":"created symlink","path":"/workspace/ML_team/train/wandb/run-20241115_145934-twuu664f/logs/debug-core.log"}
+{"time":"2024-11-15T14:59:34.981900071Z","level":"INFO","msg":"created new stream","id":"twuu664f"}
+{"time":"2024-11-15T14:59:34.982160951Z","level":"INFO","msg":"stream: started","id":"twuu664f"}
+{"time":"2024-11-15T14:59:34.982219778Z","level":"INFO","msg":"handler: started","stream_id":{"value":"twuu664f"}}
+{"time":"2024-11-15T14:59:34.982831241Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"twuu664f"}}
+{"time":"2024-11-15T14:59:34.982849431Z","level":"INFO","msg":"sender: started","stream_id":"twuu664f"}
+{"time":"2024-11-15T14:59:35.296857958Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-15T14:59:36.717236671Z","level":"INFO","msg":"stream: closing","id":"twuu664f"}
+{"time":"2024-11-15T14:59:36.717335849Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-15T14:59:36.718741474Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-15T14:59:36.798507283Z","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2024-11-15T14:59:36.798741675Z","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2024-11-15T14:59:36.798958562Z","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-11-15T14:59:37.076307686Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-15T14:59:37.357503338Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"twuu664f"}}
+{"time":"2024-11-15T14:59:37.357551604Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"twuu664f"}}
+{"time":"2024-11-15T14:59:37.357600804Z","level":"INFO","msg":"sender: closed","stream_id":"twuu664f"}
+{"time":"2024-11-15T14:59:37.359809192Z","level":"INFO","msg":"stream: closed","id":"twuu664f"}

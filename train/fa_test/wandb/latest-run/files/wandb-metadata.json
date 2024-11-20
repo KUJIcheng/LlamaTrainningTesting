@@ -1,0 +1,57 @@
+{
+  "os":  "Linux-5.4.0-196-generic-x86_64-with-glibc2.35",
+  "python":  "3.12.2",
+  "startedAt":  "2024-11-19T21:18:32.698605Z",
+  "program":  "/workspace/ML_team/train/fa_test/fa_test.py",
+  "codePath":  "fa_test.py",
+  "email":  "fejiang@ucsd.edu",
+  "root":  "/workspace/ML_team/train/fa_test",
+  "host":  "f45aafa69e51",
+  "username":  "root",
+  "executable":  "/workspace/miniconda3/bin/python",
+  "codePathLocal":  "fa_test.py",
+  "cpu_count":  48,
+  "cpu_count_logical":  96,
+  "gpu":  "NVIDIA A40",
+  "gpu_count":  4,
+  "disk":  {
+    "/":  {
+      "total":  "68719476736",
+      "used":  "712105984"
+    }
+  },
+  "memory":  {
+    "total":  "540662595584"
+  },
+  "cpu":  {
+    "count":  48,
+    "countLogical":  96
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA A40",
+      "memoryTotal":  "48305799168",
+      "cudaCores":  10752,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A40",
+      "memoryTotal":  "48305799168",
+      "cudaCores":  10752,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A40",
+      "memoryTotal":  "48305799168",
+      "cudaCores":  10752,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A40",
+      "memoryTotal":  "48305799168",
+      "cudaCores":  10752,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.2"
+}

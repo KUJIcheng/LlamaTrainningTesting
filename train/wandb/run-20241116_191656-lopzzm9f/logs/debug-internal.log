@@ -1,0 +1,8 @@
+{"time":"2024-11-16T19:16:56.950238882Z","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-16T19:16:56.950424146Z","level":"INFO","msg":"created symlink","path":"/workspace/ML_team/train/wandb/run-20241116_191656-lopzzm9f/logs/debug-core.log"}
+{"time":"2024-11-16T19:16:57.059129113Z","level":"INFO","msg":"created new stream","id":"lopzzm9f"}
+{"time":"2024-11-16T19:16:57.059323661Z","level":"INFO","msg":"stream: started","id":"lopzzm9f"}
+{"time":"2024-11-16T19:16:57.059467309Z","level":"INFO","msg":"writer: Do: started","stream_id":"lopzzm9f"}
+{"time":"2024-11-16T19:16:57.059493786Z","level":"INFO","msg":"sender: started","stream_id":"lopzzm9f"}
+{"time":"2024-11-16T19:16:57.059447041Z","level":"INFO","msg":"handler: started","stream_id":"lopzzm9f"}
+{"time":"2024-11-16T19:16:57.296069155Z","level":"INFO","msg":"Starting system monitor"}

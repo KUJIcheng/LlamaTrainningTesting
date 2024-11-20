@@ -1,0 +1,49 @@
+/workspace/miniconda3/lib/python3.12/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:64: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                                        | 0/85764 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 78, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 73, in main
+    trainer.train()
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2122, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2426, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 5038, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/accelerate/data_loader.py", line 550, in __iter__
+    current_batch = next(dataloader_iter)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/workspace/ML_team/train/data.py", line 17, in __getitem__
+    encoding = tokenize_function(self.texts[idx], self.tokenizer, self.max_length)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ML_team/train/data.py", line 4, in tokenize_function
+    return tokenizer(examples["text"], padding='max_length', max_length=max_length, truncation=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 3021, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 3131, in _call_one
+    return self.encode_plus(
+           ^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 3198, in encode_plus
+    padding_strategy, truncation_strategy, max_length, kwargs = self._get_padding_truncation_strategies(
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2923, in _get_padding_truncation_strategies
+    raise ValueError(
+ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.

@@ -1,0 +1,14 @@
+{"time":"2024-11-15T08:33:47.648035997Z","level":"INFO","msg":"using version","core version":"0.18.6"}
+{"time":"2024-11-15T08:33:47.648833233Z","level":"INFO","msg":"created symlink","path":"/workspace/ML_team/train/wandb/run-20241115_083347-czvqgo7h/logs/debug-core.log"}
+{"time":"2024-11-15T08:33:47.772192221Z","level":"INFO","msg":"created new stream","id":"czvqgo7h"}
+{"time":"2024-11-15T08:33:47.773355633Z","level":"INFO","msg":"stream: started","id":"czvqgo7h"}
+{"time":"2024-11-15T08:33:47.773632693Z","level":"INFO","msg":"sender: started","stream_id":"czvqgo7h"}
+{"time":"2024-11-15T08:33:47.773514007Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"czvqgo7h"}}
+{"time":"2024-11-15T08:33:47.773748791Z","level":"INFO","msg":"handler: started","stream_id":{"value":"czvqgo7h"}}
+{"time":"2024-11-15T08:33:48.136226716Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-15T14:56:29.050198203Z","level":"INFO","msg":"stream: closing","id":"czvqgo7h"}
+{"time":"2024-11-15T14:56:29.050251461Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-15T14:56:29.052820897Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-15T14:56:29.135820968Z","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2024-11-15T14:56:29.136138872Z","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2024-11-15T14:56:29.136408087Z","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}

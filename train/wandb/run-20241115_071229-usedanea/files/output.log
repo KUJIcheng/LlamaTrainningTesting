@@ -1,0 +1,80 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:118: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Start training...
+[2024-11-15 07:12:39,183] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 133, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 128, in main
+    trainer.train()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3612, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 2233, in backward
+    self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 195, in backward
+    self.engine.step()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2213, in step
+    self._take_model_step(lr_kwargs)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2119, in _take_model_step
+    self.optimizer.step()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage3.py", line 2069, in step
+    if self._overflow_check_and_loss_scale_update():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage3.py", line 2017, in _overflow_check_and_loss_scale_update
+    self._update_scale(self.overflow)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage3.py", line 2439, in _update_scale
+    self.loss_scaler.update_scale(has_overflow)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 175, in update_scale
+    raise Exception(
+Exception: Current loss scale already at minimum - cannot decrease scale anymore. Exiting run.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/ML_team/train/train.py", line 133, in <module>
+[rank1]:     main()
+[rank1]:   File "/workspace/ML_team/train/train.py", line 128, in main
+[rank1]:     trainer.train()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank1]:     return inner_training_loop(
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+[rank1]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank1]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3612, in training_step
+[rank1]:     self.accelerator.backward(loss, **kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 2233, in backward
+[rank1]:     self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 195, in backward
+[rank1]:     self.engine.step()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2213, in step
+[rank1]:     self._take_model_step(lr_kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2119, in _take_model_step
+[rank1]:     self.optimizer.step()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank1]:     ret_val = func(*args, **kwargs)
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage3.py", line 2069, in step
+[rank1]:     if self._overflow_check_and_loss_scale_update():
+[rank1]:        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank1]:     ret_val = func(*args, **kwargs)
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage3.py", line 2017, in _overflow_check_and_loss_scale_update
+[rank1]:     self._update_scale(self.overflow)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage3.py", line 2439, in _update_scale
+[rank1]:     self.loss_scaler.update_scale(has_overflow)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 175, in update_scale
+[rank1]:     raise Exception(
+[rank1]: Exception: Current loss scale already at minimum - cannot decrease scale anymore. Exiting run.

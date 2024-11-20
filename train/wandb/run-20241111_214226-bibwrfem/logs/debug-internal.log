@@ -1,0 +1,19 @@
+{"time":"2024-11-11T21:42:26.670345332Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-11-11T21:42:26.67102918Z","level":"INFO","msg":"created symlink","path":"/workspace/ML_team/train/wandb/run-20241111_214226-bibwrfem/logs/debug-core.log"}
+{"time":"2024-11-11T21:42:26.915156636Z","level":"INFO","msg":"created new stream","id":"bibwrfem"}
+{"time":"2024-11-11T21:42:26.91610268Z","level":"INFO","msg":"stream: started","id":"bibwrfem"}
+{"time":"2024-11-11T21:42:26.916520916Z","level":"INFO","msg":"handler: started","stream_id":{"value":"bibwrfem"}}
+{"time":"2024-11-11T21:42:26.917695313Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"bibwrfem"}}
+{"time":"2024-11-11T21:42:26.917796891Z","level":"INFO","msg":"sender: started","stream_id":"bibwrfem"}
+{"time":"2024-11-11T21:42:27.219072328Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-11T21:42:44.403908365Z","level":"INFO","msg":"stream: closing","id":"bibwrfem"}
+{"time":"2024-11-11T21:42:44.403969822Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-11T21:42:44.408940201Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-11T21:42:44.493226399Z","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2024-11-11T21:42:44.494017591Z","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2024-11-11T21:42:44.494790573Z","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-11-11T21:42:44.794860828Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-11T21:42:44.925109892Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"bibwrfem"}}
+{"time":"2024-11-11T21:42:44.925150302Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"bibwrfem"}}
+{"time":"2024-11-11T21:42:44.925223277Z","level":"INFO","msg":"sender: closed","stream_id":"bibwrfem"}
+{"time":"2024-11-11T21:42:44.928422087Z","level":"INFO","msg":"stream: closed","id":"bibwrfem"}

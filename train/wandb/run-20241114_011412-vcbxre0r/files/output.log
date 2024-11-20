@@ -1,0 +1,38 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+[2024-11-14 01:14:14,059] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-11-14 01:14:22,528] [INFO] [comm.py:652:init_distributed] cdb=None
+/workspace/ML_team/train/train.py:98: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/ML_team/train/train.py", line 112, in <module>
+[rank1]:     main()
+[rank1]:   File "/workspace/ML_team/train/train.py", line 107, in main
+[rank1]:     trainer.train()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank1]:     return inner_training_loop(
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+[rank1]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank1]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3612, in training_step
+[rank1]:     self.accelerator.backward(loss, **kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 2233, in backward
+[rank1]:     self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 195, in backward
+[rank1]:     self.engine.step()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2213, in step
+[rank1]:     self._take_model_step(lr_kwargs)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2119, in _take_model_step
+[rank1]:     self.optimizer.step()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1827, in step
+[rank1]:     self.check_overflow()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 2065, in check_overflow
+[rank1]:     self._check_overflow(partition_gradients)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 1979, in _check_overflow
+[rank1]:     self.overflow = self.has_overflow(partition_gradients)
+[rank1]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 2017, in has_overflow
+[rank1]:     overflow = overflow_gpu[0].item()
+[rank1]:                ^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: KeyboardInterrupt

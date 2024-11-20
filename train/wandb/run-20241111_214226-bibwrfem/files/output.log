@@ -1,0 +1,62 @@
+/workspace/miniconda3/lib/python3.12/site-packages/transformers/training_args.py:1559: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:65: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  0%|                                                                                                        | 0/85764 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/_functions.py:71: UserWarning: Was asked to gather along dimension 0, but all input tensors were scalars; will instead unsqueeze and return a vector.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 79, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 74, in main
+    trainer.train()
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2122, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 2474, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3572, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/trainer.py", line 3625, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/data_parallel.py", line 194, in forward
+    return self.gather(outputs, self.output_device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/data_parallel.py", line 217, in gather
+    return gather(outputs, output_device, dim=self.dim)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/scatter_gather.py", line 135, in gather
+    res = gather_map(outputs)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/scatter_gather.py", line 127, in gather_map
+    return type(out)((k, gather_map([d[k] for d in outputs])) for k in out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 8, in __init__
+  File "/workspace/miniconda3/lib/python3.12/site-packages/transformers/utils/generic.py", line 390, in __post_init__
+    for idx, element in enumerate(iterator):
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/scatter_gather.py", line 127, in <genexpr>
+    return type(out)((k, gather_map([d[k] for d in outputs])) for k in out)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/scatter_gather.py", line 121, in gather_map
+    return Gather.apply(target_device, dim, *outputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/_functions.py", line 80, in forward
+    return comm.gather(inputs, ctx.dim, ctx.target_device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/lib/python3.12/site-packages/torch/nn/parallel/comm.py", line 254, in gather
+    return torch._C._gather(tensors, dim, destination)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 7.83 GiB. GPU 0 has a total capacity of 44.34 GiB of which 6.95 GiB is free. Process 3270060 has 37.38 GiB memory in use. Of the allocated memory 36.03 GiB is allocated by PyTorch, and 939.95 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

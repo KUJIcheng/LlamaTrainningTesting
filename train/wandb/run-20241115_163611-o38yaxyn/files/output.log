@@ -1,0 +1,42 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:120: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Start training...
+Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 135, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 130, in main
+    trainer.train()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2221, in _inner_training_loop
+    self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 398, in deepspeed_init
+    hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 270, in trainer_config_finalize
+    raise ValueError(
+ValueError: Please correct the following DeepSpeed config values that mismatch TrainingArguments values:
+- ds train_micro_batch_size_per_gpu=1 vs hf per_device_train_batch_size=2
+The easiest method is to set these DeepSpeed config values to 'auto'.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/workspace/ML_team/train/train.py", line 135, in <module>
+[rank0]:     main()
+[rank0]:   File "/workspace/ML_team/train/train.py", line 130, in main
+[rank0]:     trainer.train()
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank0]:     return inner_training_loop(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2221, in _inner_training_loop
+[rank0]:     self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
+[rank0]:                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 398, in deepspeed_init
+[rank0]:     hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
+[rank0]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 270, in trainer_config_finalize
+[rank0]:     raise ValueError(
+[rank0]: ValueError: Please correct the following DeepSpeed config values that mismatch TrainingArguments values:
+[rank0]: - ds train_micro_batch_size_per_gpu=1 vs hf per_device_train_batch_size=2
+[rank0]: The easiest method is to set these DeepSpeed config values to 'auto'.

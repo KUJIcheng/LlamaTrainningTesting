@@ -1,0 +1,41 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/ML_team/train/train.py:120: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+Start training...
+Traceback (most recent call last):
+  File "/workspace/ML_team/train/train.py", line 135, in <module>
+    main()
+  File "/workspace/ML_team/train/train.py", line 130, in main
+    trainer.train()
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2221, in _inner_training_loop
+    self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 398, in deepspeed_init
+    hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
+  File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 270, in trainer_config_finalize
+    raise ValueError(
+ValueError: Please correct the following DeepSpeed config values that mismatch TrainingArguments values:
+- ds gradient_accumulation_steps=1 vs hf gradient_accumulation_steps=8
+The easiest method is to set these DeepSpeed config values to 'auto'.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/workspace/ML_team/train/train.py", line 135, in <module>
+[rank1]:     main()
+[rank1]:   File "/workspace/ML_team/train/train.py", line 130, in main
+[rank1]:     trainer.train()
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank1]:     return inner_training_loop(
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2221, in _inner_training_loop
+[rank1]:     self.optimizer, self.lr_scheduler = deepspeed_init(self, num_training_steps=max_steps)
+[rank1]:                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 398, in deepspeed_init
+[rank1]:     hf_deepspeed_config.trainer_config_finalize(args, model, num_training_steps)
+[rank1]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/integrations/deepspeed.py", line 270, in trainer_config_finalize
+[rank1]:     raise ValueError(
+[rank1]: ValueError: Please correct the following DeepSpeed config values that mismatch TrainingArguments values:
+[rank1]: - ds gradient_accumulation_steps=1 vs hf gradient_accumulation_steps=8
+[rank1]: The easiest method is to set these DeepSpeed config values to 'auto'.

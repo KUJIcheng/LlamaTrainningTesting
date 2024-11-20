@@ -1,0 +1,40 @@
+/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+[2024-11-14 02:40:23,984] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-11-14 02:40:32,248] [INFO] [comm.py:652:init_distributed] cdb=None
+/workspace/ML_team/train/train.py:98: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/workspace/ML_team/train/train.py", line 112, in <module>
+[rank3]:     main()
+[rank3]:   File "/workspace/ML_team/train/train.py", line 107, in main
+[rank3]:     trainer.train()
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+[rank3]:     return inner_training_loop(
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+[rank3]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank3]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/transformers/trainer.py", line 3612, in training_step
+[rank3]:     self.accelerator.backward(loss, **kwargs)
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/accelerator.py", line 2233, in backward
+[rank3]:     self.deepspeed_engine_wrapped.backward(loss, **kwargs)
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/accelerate/utils/deepspeed.py", line 186, in backward
+[rank3]:     self.engine.backward(loss, **kwargs)
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank3]:     ret_val = func(*args, **kwargs)
+[rank3]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/engine.py", line 2020, in backward
+[rank3]:     self.optimizer.backward(loss, retain_graph=retain_graph)
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 2058, in backward
+[rank3]:     self.loss_scaler.backward(loss.float(), retain_graph=retain_graph)
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/deepspeed/runtime/fp16/loss_scaler.py", line 63, in backward
+[rank3]:     scaled_loss.backward(retain_graph=retain_graph)
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/_tensor.py", line 581, in backward
+[rank3]:     torch.autograd.backward(
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank3]:     _engine_run_backward(
+[rank3]:   File "/workspace/miniconda3/envs/dsc180a_env/lib/python3.12/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+[rank3]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: KeyboardInterrupt
